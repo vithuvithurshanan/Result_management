@@ -1,0 +1,271 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f8fafc;
+    color: #334155;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    height: 50px;
+    object-fit: contain;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #a8c0ff;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    margin-top: 80px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    height: calc(100vh - 80px);
+    position: fixed;
+    top: 80px;
+    left: 0;
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar ul li:hover {
+    background: #34495e;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.content {
+    margin-left: 260px;
+    padding: 30px 40px;
+    flex: 1;
+}
+
+/* Summary Cards Section - Updated to flex row for multiple cards */
+.summary-cards {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* Card Common Styles */
+.card {
+    background: #ffffff;
+    color: #333;
+    padding: 25px 20px 25px 110px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: default;
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 70px 70px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    margin: 15px 0 10px;
+    font-size: 20px;
+    color: #007bff;
+}
+
+.card p {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Step-Style Cards with Background Images */
+.card-students {
+    background-image: url('../Images/s1.jpeg');
+    margin-left: 0;
+}
+
+.card-results {
+    background-image: url('../Images/r1.webp');
+    margin-left: 50px;
+}
+
+.card-pass {
+    background-image: url('../Images/p1.jpeg');
+    margin-left: 100px;
+}
+
+/* Batch Cards - same style as others but with a neutral background and margin */
+.card-batch {
+    background-image: none; /* or you can add a subtle bg-image if you want */
+    background-color: #e9f0ff;
+    color: #0b3d91;
+    padding-left: 20px; /* less left padding as no big bg icon */
+    margin-left: 0 !important;
+    box-shadow: 0 4px 15px rgba(11, 61, 145, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-batch:hover {
+    background-color: #c5d9ff;
+    box-shadow: 0 6px 20px rgba(11, 61, 145, 0.4);
+}
+
+.card-batch h3 {
+    color: #003580;
+}
+
+.card-batch p {
+    color: #002855;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .summary-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        margin-left: 0 !important;
+    }
+}
+/* Batch Filter Form Styles */
+.batch-filter-form {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.batch-filter-form label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #334155; /* matching body text color */
+    white-space: nowrap;
+}
+
+.batch-filter-form select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1.8px solid #cbd5e1; /* subtle gray border */
+    background-color: white;
+    color: #334155;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-width: 160px;
+}
+
+.batch-filter-form select:hover,
+.batch-filter-form select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+    .batch-filter-form {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .batch-filter-form select {
+        width: 100%;
+        min-width: auto;
+    }
+}
